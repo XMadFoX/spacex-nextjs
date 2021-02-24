@@ -11,6 +11,7 @@ import styles from './launches.module.scss';
 
 export default function launches(props) {
 	const [page, setPage] = useState(0);
+	const [link, setLink] = useState();
 
 	const { data, loading, error, fetchMore } = useQuery(
 		gql`
@@ -42,6 +43,43 @@ export default function launches(props) {
 
 	return (
 		<div className={styles.root}>
+			{link && (
+				<>
+					<span
+						style={{
+							position: 'fixed',
+							zIndex: '500',
+							width: '100vw',
+							height: '100vh',
+							opacity: '0.4',
+							top: '0',
+							backgroundColor: 'black',
+						}}></span>
+					<div
+						onClickCapture={() => setLink(null)}
+						style={{
+							position: 'fixed',
+							zIndex: '1000',
+							width: '100vw',
+							height: '100vh',
+						}}>
+						<Card style={{ margin: '5rem', height: '80%' }}>
+							<iframe
+								style={{
+									display: 'block',
+									width: '100%',
+									height: '100%',
+									border: 'none',
+									top: '10%',
+									bottom: '10%',
+								}}
+								src={link}
+							/>
+						</Card>
+					</div>
+				</>
+			)}
+			{error && <p>{error.graphQLErrors[0].message}</p>}
 			<Grid container spacing={2} style={{ width: '100%', padding: '5%' }}>
 				{data &&
 					data.launchesPast.map((l) => {
@@ -69,24 +107,28 @@ export default function launches(props) {
 										<Button
 											variant='contained'
 											color='secondary'
+											onClick={() => setLink(l.links.article_link)}
 											disabled={l.links.article_link === null}>
 											Read article
 										</Button>
 										<Button
 											variant='contained'
 											color='secondary'
+											onClick={() => setLink(l.links.video_link)}
 											disabled={l.links.video_link === null}>
 											Watch video
 										</Button>
 										<Button
 											variant='contained'
 											color='secondary'
+											onClick={() => setLink(l.links.wikipedia)}
 											disabled={l.links.wikipedia === null}>
 											Wiki
 										</Button>
 										<Button
 											variant='contained'
 											color='secondary'
+											onClick={() => setLink(l.links.flickr_images)}
 											disabled={l.links.flickr_images === null}>
 											View images
 										</Button>
