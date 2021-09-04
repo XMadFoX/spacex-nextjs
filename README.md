@@ -1,25 +1,11 @@
-# Next.js example
+# A demo project to view some SpaceX things like past launches
 
-## How to use
+## This project uses
 
-Download the example [or clone the repo](https://github.com/mui-org/material-ui):
+- [SpaceX land](https://github.com/SpaceXLand/api) GraphQL API to fetch the data (data is outdated)
+- [Next.js](https://nextjs.org) a [React](https://reactjs.org/) framework
+- GraphQL client [Apollo](https://www.apollographql.com/docs/react/)
+- [Material UI](https://mui.com) components library
+- A bit of [SCSS](https://sass-lang.com/) and clean CSS
 
-```sh
-curl https://codeload.github.com/mui-org/material-ui/tar.gz/master | tar -xz --strip=2  material-ui-master/examples/nextjs
-cd nextjs
-```
-
-Install it and run:
-
-```sh
-npm install
-npm run dev
-```
-
-or:
-
-[![Edit on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/mui-org/material-ui/tree/master/examples/nextjs)
-
-## The idea behind the example
-
-[Next.js](https://github.com/zeit/next.js) is a framework for server-rendered React apps.
+## [View online](https://spacex-nextjs-flax.vercel.app/)
