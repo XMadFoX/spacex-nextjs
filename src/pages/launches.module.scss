@@ -1,13 +1,18 @@
 .root {
-    flex-grow: 1;
+	flex-grow: 1;
 }
 
 .card {
-    padding: 1rem;
+	padding: 1rem;
 }
 
 .card_buttons_container {
-    button {
-        margin: 0.5em;
-    }
+	button {
+		margin: 0.5em;
+	}
 }
+
+.settings {
+	display: grid;
+}
+

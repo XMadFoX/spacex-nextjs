@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useQuery, gql } from '@apollo/client';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
+import { Button as MuiButton } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Tooltip from '@material-ui/core/Tooltip';
+import Link from 'next/link';
 import styles from './launches.module.scss';
 
 export default function launches(props) {
@@ -66,30 +65,10 @@ export default function launches(props) {
 										)}
 									</Typography>
 									<div className={styles.card_buttons_container}>
-										<Button
-											variant='contained'
-											color='secondary'
-											disabled={l.links.article_link === null}>
-											Read article
-										</Button>
-										<Button
-											variant='contained'
-											color='secondary'
-											disabled={l.links.video_link === null}>
-											Watch video
-										</Button>
-										<Button
-											variant='contained'
-											color='secondary'
-											disabled={l.links.wikipedia === null}>
-											Wiki
-										</Button>
-										<Button
-											variant='contained'
-											color='secondary'
-											disabled={l.links.flickr_images === null}>
-											View images
-										</Button>
+										<Open link={l.links.article_link}>Read article</Open>
+										<Open link={l.links.video_link}>Watch video</Open>
+										<Open link={l.links.wikipedia}>Wiki</Open>
+										{/* <Open link={l.links.flickr_images}>View images</Open> */}
 									</div>
 								</Card>
 							</Grid>
@@ -99,3 +78,15 @@ export default function launches(props) {
 		</div>
 	);
 }
+
+const Open = ({link, children}) => link ? <Link href={link}>
+<a target='_blank'><Button link={link} children={children}/></a></Link> : <Button children={children}/>
+
+const Button = ({link, children}) => (
+		<MuiButton
+			variant='contained'
+			color='secondary'
+			disabled={!link}>
+			{children}
+		</MuiButton>
+);

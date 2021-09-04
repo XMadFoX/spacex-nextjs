@@ -6,6 +6,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../components/theme';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import '../index.css'
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
 export const client = new ApolloClient({
