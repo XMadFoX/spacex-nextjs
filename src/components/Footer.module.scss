@@ -1,0 +1,22 @@
+.footer {
+	position: fixed;
+	top: auto;
+	bottom: 0;
+	height: 2rem;
+	width: 100%;
+	background-color: #141414;
+	color: white;
+	text-align: center;
+	opacity: 0.25;
+	display: grid;
+	align-items: center;
+	font-size: 0.75rem;
+	transition: all 0.5s;
+
+	&:hover {
+		height: 3rem;
+		font-size: 1.5rem;
+		opacity: 1;
+		transition: all 0.5s;
+	}
+}

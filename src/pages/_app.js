@@ -43,7 +43,7 @@ export default function MyApp(props) {
 	}, []);
 
 	return (
-		<React.Fragment>
+		<>
 			<ApolloProvider client={client}>
 				<Head>
 					<title>Home</title>
@@ -60,7 +60,7 @@ export default function MyApp(props) {
 					<Footer />
 				</ThemeProvider>
 			</ApolloProvider>
-		</React.Fragment>
+		</>
 	);
 }
 
